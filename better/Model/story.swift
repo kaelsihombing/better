@@ -74,7 +74,7 @@ class Story {
                     ),
                     QuestionItem(question: "Project Manager memanggil seluruh Tim untuk berkumpul, saat briefing, Project Manager mengatakan pekerjaan yang Tim mu lakukan ada kesalahan dan harus diulang dari awal, sebaiknya yang dilakukan Tim mu adalah",
                                  options: [
-                                    Options(option: "Mohon maaf sebelumnya, menurut saya pekerjaan Tim kami tidak mesti diulang dari awal, karena point yang salah tidak dari awal pak", type: "Asertive"),
+                                    Options(option: "Mohon maaf sebelumnya, menurut saya pekerjaan Tim kami tidak mesti diulang dari awal, karena point yang salah tidak dari awal pak", type: "Assertive"),
                                     Options(option: "Menerima dengan berat hati karena merasa diri belum berpengalaman", type: "Pasif"),
                                     Options(option: "Tidak bisa begitu pak, saya sudah mengerjakan kerjaan ini 1 minggu tanpa tidur", type: "Agresif")
                                 ]
