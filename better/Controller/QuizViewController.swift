@@ -26,6 +26,7 @@ class QuizViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        quiz.changeStoryIndex(index: storyIndex)
         
         buttonOne.roundedButton()
         buttonTwo.roundedButton()
@@ -54,9 +55,28 @@ class QuizViewController: UIViewController {
        
         print(quiz.answers)
         
-        quiz.nextQuestion()
-        progress = quiz.getProgress()
-        timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateIO), userInfo: nil, repeats: true)
+        let (typeResult, answersResult) = quiz.nextQuestion()
+        print("=============",typeResult, answersResult)
+        
+        if typeResult == "next" {
+            progress = quiz.getProgress()
+            timer = Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateIO), userInfo: nil, repeats: true)
+        } else {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let vc = storyBoard.instantiateViewController(withIdentifier: "ResultViewController") as! ResultViewController
+           
+            
+            vc.result = typeResult
+            vc.answers = answersResult
+        
+            self.addChild(vc)
+            self.view.addSubview(vc.view)
+            vc.didMove(toParent: self)
+        }
+            
+        
+       
     }
     
     @objc func updateIO() {

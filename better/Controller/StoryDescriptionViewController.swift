@@ -21,6 +21,9 @@ class StoryDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         storyDescriptionLabel.text = story[storyIndex].caseDescription
+        
+        
+        
         startButton.roundedButton()
         backButton.roundedButton()
     }
@@ -30,6 +33,7 @@ class StoryDescriptionViewController: UIViewController {
         
         let vc = storyboard.instantiateViewController(withIdentifier: "QuizViewController") as! QuizViewController
         
+        vc.storyIndex = storyIndex
         self.addChild(vc)
         self.view.addSubview(vc.view)
         vc.didMove(toParent: self)
